@@ -1,0 +1,43 @@
+{{define "content"}}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        <span>
+            <i class="glyphicon glyphicon-inbox"></i>
+            {{.Title}}
+        </span>
+            <div class="pull-right">
+                发起人：{{.GetAuthor.Name}} - {{ .GetCreatedAtDate }}
+            </div>
+        </div>
+        <div class="panel-body">
+            <span>
+                {{ .Content }}
+            </span>
+        </div>
+        <span>--------</span>
+        {{ range .GetReplays }}
+            <div class="panel-body">
+            <span>
+                <i class="glyphicon glyphicon-user"></i>
+                {{ .Content }}
+            </span>
+                <div class="pull-right">
+                    {{.GetAuthor.Name}} - {{ .GetCreatedAtDate }}
+                </div>
+            </div>
+        {{end}}
+
+    </div>
+    <div class="panel panel-info">
+        <div class="panel-body">
+            <form role="form" action="/login" >
+                <div class="form-group">
+                    <textarea class="form-control" name="body" id="body" placeholder="写回复" rows="3"></textarea>
+                    <input type="hidden" name="id" value="{{ .Id }}">
+                    <br/>
+                    <button class="btn btn-primary pull-right" type="submit">回复</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{{end}}

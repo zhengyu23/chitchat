@@ -1,0 +1,40 @@
+{{define "content"}}
+    <div class="panel panel-default">
+    {{if .}}
+        {{ range . }}
+            <div class="panel-heading">
+                <span>
+                    <i class="glyphicon glyphicon-hand-right"></i>
+                        私信对话框: -- 发起者:{{.GetSender.Name}} -- 接收者:{{.GetRecipient.Name}}
+                </span>
+                <div class="pull-right">
+                    {{ .GetCreatedAtDate }}
+                </div>
+            </div>
+            <div class="panel-body">
+                <span>
+                    {{ .Content }}
+                </span>
+            </div>
+        {{end}}
+    {{else}}
+        <div class="panel-heading">
+            <span>
+                暂时没有人私信你，去下面发送私信吧
+            </span>
+        </div>
+    {{end}}
+        <div class="panel panel-info">
+            <div class="panel-body info">
+                <form role="form" action="/message/send" method="post">
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control" placeholder="输入对方Email" required autofocus>
+                        <textarea class="form-control" name="content" id="content" placeholder="写私信" rows="3"></textarea>
+                        <br/>
+                        <button class="btn btn-primary pull-right" type="submit">私信</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{{ end }}

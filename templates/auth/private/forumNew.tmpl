@@ -1,0 +1,12 @@
+{{define "content"}}
+    <form role="form" action="/forum/new" method="post">
+        <div class="lead">在下面创建一个新帖子</div>
+        <div class="form-group">
+            <textarea class="form-control" name="title" id="title" placeholder="帖子主题" rows="1"></textarea>
+            <textarea class="form-control" name="content" id="content" placeholder="帖子内容" rows="4"></textarea>
+            <br/>
+            <br/>
+            <button class="btn btn-lg btn-primary pull-right" type="submit">提交</button>
+        </div>
+    </form>
+{{end}}

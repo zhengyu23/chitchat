@@ -1,0 +1,18 @@
+{{define "content"}}
+    <div class="text">
+        <p ><a href="/login">新建帖子</a></p>
+    </div>
+    {{range .}}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span class="glyphicon glyphicon-bookmark" aria-hidden="true"> {{ .Title }} </span>
+            </div>
+            <div class="panel-body">
+                发起人：{{.GetAuthor.Name}} - 发布于：{{.GetCreatedAtDate}}
+                <div class="pull-right">
+                    <a href="/forumDetail?forum_id={{.Id}}">详情</a>
+                </div>
+            </div>
+        </div>
+    {{end}}
+{{end}}

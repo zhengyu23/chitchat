@@ -1,0 +1,12 @@
+{{define "content" }}
+<ul class="list-group">
+    <li class="list-group-item">Name: {{.Name}}</li>
+    <li class="list-group-item">Email: {{.Email}}</li>
+    <li class="list-group-item">Password: {{.Password}}</li>
+        <p >
+            <a class="btn btn-primary" href="/messageCenter">私信中心</a>
+            <span class="badge" > {{.GetNumReplies}} </span>
+        </p>
+    </button>
+</ul>
+{{end}}
